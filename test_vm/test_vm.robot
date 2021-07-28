@@ -1,13 +1,6 @@
 *** Settings ***
 Library                ../SSH_library/TestSSH.py
-
-*** Variables ***
-${HOST}                127.0.0.1
-${USERNAME}            waseem
-${PASSWORD}            123123
-${NET1}                inet 10.0.2.15
-${NET2}                netmask 255.255.255.0
-${NET3}                broadcast 10.0.2.255
+Resource               ../Resource/variables1.robot
 
 *** Test Cases ***
 Check Hostname
@@ -23,8 +16,8 @@ Check Network
     Should Contain   ${NETWORK}  ${NET3}
 
 Make Directory
-    Create Directory    directory1
-    ${RESULT}           Directory Should Exist  directory1
+    Create Directory    directory3
+    ${RESULT}           DIRECTORY SHOULD EXIST  directory3
     Should Be Equal As Integers   ${RESULT}  1
 
 Make File
